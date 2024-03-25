@@ -1,0 +1,15 @@
+FROM python:3.10-slim
+
+RUN pip install --upgrade pip
+
+ENV APP_HOME /code
+WORKDIR ${APP_HOME}
+
+COPY ./requirements ./requirements
+RUN pip install --no-cache-dir -r ./requirements/local.txt
+
+# Skip this since volume is mounted in the compose file
+# COPY . .
+
+# Run gunicorn inside the /app directory
+CMD ["gunicorn", "-c", "gunicorn/gunicorn.local.py", "app.wsgi:application", "--reload"]
