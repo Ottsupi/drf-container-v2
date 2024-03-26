@@ -8,7 +8,7 @@ env = environ.Env()
 
 ALLOWED_HOSTS = [env('HOST_NAME')]
 CORS_ALLOWED_ORIGINS = [env('HOST_NAME')]
-"""
+
 DATABASES = {
     # read os.environ['DATABASE_URL'] and raises
     # ImproperlyConfigured exception if not found
@@ -16,8 +16,8 @@ DATABASES = {
     # The db() method is an alias for db_url().
     'default': env.db(),
 }
-DATABASES["default"]["CONN_MAX_AGE"] = env.int("CONN_MAX_AGE", default=60)
-"""
+DATABASES['default']['CONN_MAX_AGE'] = env.int('CONN_MAX_AGE', default=60)
+
 
 # Staticfiles
 # https://whitenoise.readthedocs.io/en/latest/django.html
