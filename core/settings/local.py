@@ -15,11 +15,11 @@ ALLOWED_HOSTS = [
     env('HOST_NAME'),
 ]
 
-
+HOST_NAME = env('HOST_NAME')
 CORS_ALLOWED_ORIGINS = [
     'http://localhost',
     'http://127.0.0.1',
-    f'https://{env('HOST_NAME')}',
+    f'https://{HOST_NAME}',
 ]
 
 
