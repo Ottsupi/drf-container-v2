@@ -12,4 +12,4 @@ RUN pip install --no-cache-dir -r ./requirements/local.txt
 # COPY . .
 
 # Run gunicorn inside the /app directory
-CMD ["gunicorn", "-c", "gunicorn/gunicorn.production.py", "app.wsgi:application", "--reload"]
+CMD ["gunicorn", "-c", "gunicorn/gunicorn.production.py", "core.wsgi:application", "--reload"]
