@@ -2,11 +2,11 @@ services:
   backend:
     build:
       context: .
-      dockerfile: ./docker/Dockerfile.local
+      dockerfile: ./docker/Dockerfile.production
     ports:
       - "8080:8080"
     env_file:
-      - ./env/backend.env
+      - ./env/production/backend.env
 
 volumes:
   database_data: {}

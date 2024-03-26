@@ -6,7 +6,10 @@ MANAGE = python manage.py
 
 
 run:
-	gunicorn -c ./gunicorn/gunicorn.local.py app.wsgi:application --reload
+	gunicorn -c ./gunicorn/gunicorn.local.py core.wsgi:application --reload
+
+prod:
+	gunicorn -c ./gunicorn/gunicorn.production.py core.wsgi:application
 
 migrations:
 	$(MANAGE) makemigrations

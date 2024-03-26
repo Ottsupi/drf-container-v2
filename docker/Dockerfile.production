@@ -8,8 +8,7 @@ WORKDIR ${APP_HOME}
 COPY ./requirements ./requirements
 RUN pip install --no-cache-dir -r ./requirements/local.txt
 
-# Skip this since volume is mounted in the compose file
-# COPY . .
+COPY . .
 
 # Run gunicorn inside the /app directory
-CMD ["gunicorn", "-c", "gunicorn/gunicorn.production.py", "core.wsgi:application", "--reload"]
+CMD ["gunicorn", "-c", "./gunicorn/gunicorn.production.py", "core.wsgi:application"]

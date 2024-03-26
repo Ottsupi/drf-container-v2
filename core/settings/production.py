@@ -10,14 +10,11 @@ ALLOWED_HOSTS = [env('HOST_NAME')]
 CORS_ALLOWED_ORIGINS = [env('HOST_NAME')]
 
 DATABASES = {
-    'default': {
-        'ENGINE': env('DATABASE_ENGINE'),
-        'NAME': env('DATABASE_NAME'),
-        'USER': env('DATABASE_USER'),
-        'PASSWORD': env('DATABASE_PASSWORD'),
-        'HOST': env('DATABASE_HOST'),
-        'PORT': env('DATABASE_PORT'),
-    }
+    # read os.environ['DATABASE_URL'] and raises
+    # ImproperlyConfigured exception if not found
+    #
+    # The db() method is an alias for db_url().
+    'default': env.db(),
 }
 
 
