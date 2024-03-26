@@ -19,7 +19,7 @@ ALLOWED_HOSTS = [
 CORS_ALLOWED_ORIGINS = [
     'http://localhost',
     'http://127.0.0.1',
-    env('HOST_NAME'),
+    f'https://{env('HOST_NAME')}',
 ]
 
 
