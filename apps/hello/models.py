@@ -11,6 +11,7 @@ class HelloMessage(models.Model):
         VOICE_MESSAGE = 'VOICE', _('Voice Message')
 
     channel = models.CharField(
+        max_length=6,
         choices=Channels.choices,
     )
 
