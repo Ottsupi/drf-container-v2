@@ -16,6 +16,7 @@ DATABASES = {
     # The db() method is an alias for db_url().
     'default': env.db(),
 }
+DATABASES["default"]["CONN_MAX_AGE"] = env.int("CONN_MAX_AGE", default=60)
 
 
 # Staticfiles
