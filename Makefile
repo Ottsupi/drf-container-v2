@@ -24,7 +24,7 @@ app:
 	@read -p "Enter the app name: " app_name; \
 	mkdir -p apps/$$app_name; \
 	$(MANAGE) startapp $$app_name apps/$$app_name; \
-	echo "Don't forget to edit the name in `apps.py` config"
+	echo "Don't forget to edit the name in $$app_name/apps.py config"
 
 shell:
 	$(MANAGE) shell_plus --ipython
