@@ -19,3 +19,7 @@ gunicorn==21.2.*
 whitenoise==6.5.*
 django-cors-headers==4.3.*
 werkzeug==3.0.*
+
+
+# Debug
+django-debug-toolbar==4.3.*
