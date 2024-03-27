@@ -6,17 +6,21 @@ DEBUG = False
 
 env = environ.Env()
 
-ALLOWED_HOSTS = [env('HOST_NAME')]
-CORS_ALLOWED_ORIGINS = [env('HOST_NAME')]
+HOST_NAME = env('HOST_NAME')
+ALLOWED_HOSTS = [
+    HOST_NAME,
+]
+CORS_ALLOWED_ORIGINS = [
+    f'https://{HOST_NAME}',
+]
 
 DATABASES = {
     # read os.environ['DATABASE_URL'] and raises
     # ImproperlyConfigured exception if not found
-    #
     # The db() method is an alias for db_url().
     'default': env.db(),
 }
-DATABASES["default"]["CONN_MAX_AGE"] = env.int("CONN_MAX_AGE", default=60)
+DATABASES['default']['CONN_MAX_AGE'] = env.int('CONN_MAX_AGE', default=60)
 
 
 # Staticfiles

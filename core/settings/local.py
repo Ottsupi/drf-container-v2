@@ -1,19 +1,23 @@
 import socket
 
+import environ
+
 from .base import *  # noqa: F403
 
 DEBUG = True
 
+env = environ.Env()
+
+HOST_NAME = env('HOST_NAME')
 ALLOWED_HOSTS = [
-    '0.0.0.0',  # noqa: S104
     'localhost',
     '127.0.0.1',
+    HOST_NAME,
 ]
-
-
 CORS_ALLOWED_ORIGINS = [
     'http://localhost',
     'http://127.0.0.1',
+    f'http://{HOST_NAME}',
 ]
 
 
